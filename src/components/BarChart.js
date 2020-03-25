@@ -1,6 +1,7 @@
 import React from 'react'
 import {VictoryTheme,VictoryChart,VictoryBar} from 'victory'
 
+
 class BarChart extends React.Component {
 
     constructor(props) {
@@ -19,16 +20,27 @@ class BarChart extends React.Component {
     }
 
     render() {
-      return (
-        <VictoryChart
-          domainPadding={{ x: 40 }} 
+      return (        
+       
+        <svg width={300} height={250} >
+        <VictoryChart           
+          domainPadding={{ x: 25 }} 
+          standalone={false}
+          width={300} height={250}
+          theme={VictoryTheme.material}
+
         //   animate
         >
-        <VictoryBar           
-            data={this.state.data}
-            animate           
+        <VictoryBar    
+        // horizontal 
+        // theme={VictoryTheme.material} 
+        width={300} height={250}     
+        data={this.state.data}
+        animate           
         />            
-        </VictoryChart>      
+        </VictoryChart> 
+        </svg>
+       
       )
     }
   }

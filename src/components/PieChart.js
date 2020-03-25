@@ -1,6 +1,7 @@
 import React from 'react'
 import {VictoryPie, VictoryTheme, VictoryLabel} from 'victory'
 
+
 class PieChart extends React.Component
 {
     constructor(props){
@@ -14,7 +15,7 @@ class PieChart extends React.Component
     render()
     {
         return(   
-            <div>            
+                   
             <svg width="200" height="200" viewBox="0 0 200 200">
             <VictoryPie  
             standalone={false}           
@@ -32,7 +33,7 @@ class PieChart extends React.Component
             // theme = {VictoryTheme.material}
             />    
             </svg>
-            </div> 
+           
         )
     }
 }
