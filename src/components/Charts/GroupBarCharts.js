@@ -9,6 +9,7 @@ class GroupCharts extends React.Component {
         return dArr.map((Arr) => {
             // console.log(Arr)
             return <VictoryBar
+                horizontal={this.props.horizontal}
                 data={Arr}
                 animate
             />
@@ -22,6 +23,7 @@ class GroupCharts extends React.Component {
                     theme={VictoryTheme.material}
                     standalone={false}
                     width={300} height={300}
+                    domainPadding={30}
                 >
                     <VictoryGroup offset={12}
                         colorScale={"qualitative"}

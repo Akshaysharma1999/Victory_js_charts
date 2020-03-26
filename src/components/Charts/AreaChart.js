@@ -20,7 +20,7 @@ class AreaChart extends React.Component {
             <VictoryChart
               theme={VictoryTheme.material}
               standalone={false}
-              width={300} height={300}
+              width={300} height={300}              
             >
               <VictoryArea
                 standalone={false}
@@ -31,8 +31,7 @@ class AreaChart extends React.Component {
                 data={this.state.data}
               />
             </VictoryChart>
-          </svg>
-        
+          </svg>        
     )
   }
 }

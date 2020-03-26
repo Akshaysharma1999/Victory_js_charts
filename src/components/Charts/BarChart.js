@@ -15,7 +15,7 @@ class BarChart extends React.Component {
     componentDidMount() {     
         // this.setState({data :[{x:1,y:5},{x:2,y:7},{x:3,y:2},{x:4,y:4},{x:5,y:1}]})
         // setInterval(()=>{
-        //     this.setState({data :[{x:1,y:3},{x:2,y:6},{x:3,y:4},{x:4,y:8}]})
+        //     this.setState({data :[{x:"1",y:"13"},{x:"2",y:"16"},{x:"3",y:"14"},{x:"4",y:"8"},{x:"5",y:"2"},{x:"6",y:"1"}]})
         // },3000)
     }
 
@@ -27,8 +27,7 @@ class BarChart extends React.Component {
           domainPadding={{ x: 25 }} 
           standalone={false}
           width={300} height={250}
-          theme={VictoryTheme.material}
-
+          theme={VictoryTheme.material}         
         //   animate
         >
         <VictoryBar    

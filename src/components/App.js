@@ -1,22 +1,57 @@
 import React from 'react'
-import PieChart from './PieChart'
-import AreaChart from './AreaChart'
-import BarChart from './BarChart'
-import LineChart from './LineChart'
-import GroupCharts from './GroupCharts'
-import StackChart from './StackChart'
+// import PieChart from './PieChart'
+// import AreaChart from './AreaChart'
+// import BarChart from './BarChart'
+// import LineChart from './LineChart'
+// import GroupBarCharts from './GroupBarCharts'
+// import StackAreaChart from './StackAreaChart'
+// import StackBarChart from './StackBarChart'
+// import HbarSort from './HbarSort'
+import Layout from './Layout'
 
 class App extends React.Component {
   render() {
     return (
-      <div>   
-      <AreaChart data={[{ x: 1, y: 10 }, { x: 2, y: 5 }, { x: 3, y: 8 }, { x: 4, y: 6 }, { x: 5, y: 20 }]} />
-      <PieChart data={[{ x: "A", y: 25 }, { x: "B", y: 15 }, { x: "C", y: 20 }, { x: "D", y: 10 }, { x: "E", y: 18 }, { x: "F", y: 12 }]} />
-      <BarChart data={[{ x: 1, y: 5 }, { x: 2, y: 7 }, { x: 3, y: 2 }, { x: 4, y: 4 }, { x: 5, y: 1 }, { x: 6, y: 10 }]} /> 
-      <StackChart data = {[[{ x: "a", y: 2 }, { x: "b", y: 3 }, { x: "c", y: 5 }],[{ x: "a", y: 1 }, { x: "b", y: 4 }, { x: "c", y: 5 }],[{ x: "a", y: 3 }, { x: "b", y: 2 }, { x: "c", y: 6 }]]}/>
-      <LineChart data={[{ x: 1, y: 2 },{ x: 2, y: 3 },{ x: 3, y: 5 },{ x: 4, y: 4 },{ x: 5, y: 7 }]}/>
-      <GroupCharts data={[[{ x: 1, y: 1 }, { x: 2, y: 2 }, { x: 3, y: 5 }],[{ x: 1, y: 2 }, { x: 2, y: 1 }, { x: 3, y: 7 }],[{ x: 1, y: 3 }, { x: 2, y: 4 }, { x: 3, y: 9 }]]}/>
-      </div>      
+      // <div>
+      //   {/* area chart  data in the form of 2d array  */}
+      // <StackAreaChart data={[[{ x: "A", y: 10 }, { x: "B", y: 5 }, { x: "C", y: 8 }, { x: "D", y: 6 }, { x: "E", y: 20 }]]} />
+       
+      //   {/* stack area chart data in the form of 2d array */}
+      // <StackAreaChart data = {[[{ x: "A", y: 2 }, { x: "B", y: 3 }, { x: "C", y: 5 }],[{ x: "A", y: 1 }, { x: "B", y: 4 }, { x: "C", y: 5 }],[{ x: "A", y: 3 }, { x: "B", y: 2 }, { x: "C", y: 6 }]]}/>
+      
+      // {/* pie chart need a handler for default props */}
+      // <PieChart data={[{ x: "A", y: 25 }, { x: "B", y: 15 }, { x: "C", y: 20 }, { x: "D", y: 10 }, { x: "E", y: 18 }, { x: "F", y: 12 }]} inRadius={0} />
+      
+      // {/* donut chart need a handler for default props*/}
+      // <PieChart data={[{ x: "A", y: 25 }, { x: "B", y: 15 }, { x: "C", y: 20 }, { x: "D", y: 10 }, { x: "E", y: 18 }, { x: "F", y: 12 }]} inRadius={40} />
+
+      // {/* grouped bar chart exmaple with 3 grouped data */}
+      // <GroupBarCharts data={[[{ x: "A", y: 1 }, { x: "B", y: 2 }, { x: "C", y: 5 }],[{ x: "A", y: 2 }, { x: "B", y: 1 }, { x: "C", y: 7 }],[{ x: "A", y: 3 }, { x: "B", y: 4 }, { x: "C", y: 9 }]]} horizontal={false}/>
+
+      // {/*grouped bar chart horizontal*/}
+      // <GroupBarCharts data={[[{ x: "A", y: 1 }, { x: "B", y: 2 }, { x: "C", y: 5 }],[{ x: "A", y: 2 }, { x: "B", y: 1 }, { x: "C", y: 7 }],[{ x: "A", y: 3 }, { x: "B", y: 4 }, { x: "C", y: 9 }]]} horizontal={true}/>
+      
+      // {/* Bar chart requires data in the form of 2d array */}     
+      // <StackBarChart  data={[[{ x: "A", y: 5 }, { x: "B", y: 7 }, { x: "C", y: 2 }, { x: "D", y: 4 }, { x: "E", y: 1 }, { x: "F", y: 10 }]]} horizontal={false}/>
+
+      // {/* Bar chart horizontal */}
+      // <StackBarChart  data={[[{ x: "A", y: 5 }, { x: "B", y: 7 }, { x: "C", y: 2 }, { x: "D", y: 4 }, { x: "E", y: 1 }, { x: "F", y: 10 }]]} horizontal={true}/>
+
+      // {/*Stack bar chart requires data in the form of 2d array*/}
+      // <StackBarChart data={[[{ x: "A", y: 2 }, { x: "B", y: 3 }, { x: "C", y: 5 }],[{ x: "A", y: 1 }, { x: "B", y: 4 }, { x: "C", y: 5 }],[{ x: "A", y: 3 }, { x: "B", y: 2 }, { x: "C", y: 6 }]]} horizontal={false} />
+
+      // {/*Stack Bar Chart horizontal */}
+      // <StackBarChart data={[[{ x: "A", y: 2 }, { x: "B", y: 3 }, { x: "C", y: 5 }],[{ x: "A", y: 1 }, { x: "B", y: 4 }, { x: "C", y: 5 }],[{ x: "A", y: 3 }, { x: "B", y: 2 }, { x: "C", y: 6 }]]} horizontal={true}/>
+
+      // {/* Line Chart */}
+      // <LineChart data={[{ x: "A", y: 2 },{ x: "B", y: 3 },{ x: "C", y: 5 },{ x: "D", y: 4 },{ x: "E", y: 7 }]}/>         
+
+      // {/* <HbarSort data={[{ x: "a", y: 5 }, { x: "b", y: 7 }, { x: "c", y: 2 }, { x: "d", y: 4 }, { x: "e", y: 1 }, { x: "f", y: 10 }]} /> */}
+      // </div>      
+      
+      <div>
+          <Layout/>
+      </div>
     )
   }
 }
