@@ -12,9 +12,8 @@ import LineCard from './handlers/LineCard'
 class Main extends React.Component {
     render() {
         return (
-            <Container  style={{ marginTop: '7em' }}>
-                <Header as='h1'>Charts</Header>
-                <Card.Group itemsPerRow={3}>
+            <Container fluid style={{ marginTop: '7em' ,padding:'2em'}}>               
+                <Card.Group >
                     <PieCard inRadius={0}/>
                     <PieCard inRadius={60}/>   
                     <AreaCard/>   
