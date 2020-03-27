@@ -1,5 +1,5 @@
 import React from "react";
-import { VictoryChart, VictoryArea, VictoryTheme, VictoryLabel, VictoryAxis} from "victory";
+import { VictoryChart, VictoryArea, VictoryTheme, VictoryLabel, VictoryAxis,VictoryTooltip} from "victory";
 
 
 class AreaChart extends React.Component {
@@ -28,7 +28,7 @@ class AreaChart extends React.Component {
                 animate
                 width={300} height={300}
                 // interpolation="natural"            
-                data={this.state.data}
+                data={this.state.data}               
               />
             </VictoryChart>
           </svg>        

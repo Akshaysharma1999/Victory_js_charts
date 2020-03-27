@@ -1,6 +1,5 @@
 import React from 'react'
-import {VictoryTheme,VictoryChart,VictoryBar} from 'victory'
-
+import {VictoryTheme,VictoryChart,VictoryBar,VictoryLabel} from 'victory'
 
 class BarChart extends React.Component {
 
@@ -27,17 +26,18 @@ class BarChart extends React.Component {
           domainPadding={{ x: 25 }} 
           standalone={false}
           width={300} height={250}
-          theme={VictoryTheme.material}         
-        //   animate
+          theme={VictoryTheme.material}  
+          //   animate
         >
         <VictoryBar    
         // horizontal 
         // theme={VictoryTheme.material} 
         width={300} height={250}     
         data={this.state.data}
-        animate           
+        animate  
         />            
-        </VictoryChart> 
+        </VictoryChart>
+        
         </svg>
        
       )

@@ -1,6 +1,7 @@
 import React from 'react'
-import { VictoryStack, VictoryArea, VictoryTheme, VictoryChart } from 'victory'
+import { VictoryStack, VictoryArea, VictoryTheme, VictoryChart,VictoryLabel,VictoryScatter} from 'victory'
 import AreaChart from './AreaChart'
+
 
 class StackChart extends React.Component {  
     constructor()
@@ -16,13 +17,14 @@ class StackChart extends React.Component {
         return (
             dArr.map((d) => {
                 return (
+                   
                     <VictoryArea
                         standalone={false}
                         width={300}
                         height={300}
                         animate
                         data={d}
-                    />
+                    />                   
                 )
             })
         )
@@ -46,7 +48,10 @@ class StackChart extends React.Component {
                         height={300}
                     >
                         {this.renderAreaCharts()}
+                      
                     </VictoryStack>
+                    <VictoryLabel text="Y label" x={15} y={150} textAnchor="middle" labelPlacement="parallel" angle="270"/>
+                    <VictoryLabel text="X label" x={150} y={288} textAnchor="middle" labelPlacement="parallel" />
                 </VictoryChart>
             </svg>
         )

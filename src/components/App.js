@@ -8,6 +8,7 @@ import React from 'react'
 // import StackBarChart from './StackBarChart'
 // import HbarSort from './HbarSort'
 import Layout from './Layout'
+import MapChart from './Charts/MapChart'
 
 class App extends React.Component {
   render() {
@@ -48,7 +49,9 @@ class App extends React.Component {
 
       // {/* <HbarSort data={[{ x: "a", y: 5 }, { x: "b", y: 7 }, { x: "c", y: 2 }, { x: "d", y: 4 }, { x: "e", y: 1 }, { x: "f", y: 10 }]} /> */}
       // </div>      
-      
+     
+      //{/* map chart */}
+      // <MapChart/>
       <div>
           <Layout/>
       </div>

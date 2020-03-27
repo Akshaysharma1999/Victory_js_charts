@@ -8,11 +8,12 @@ import GroupedBarCard from './handlers/GroupedBarCard'
 import BarCard from './handlers/BarCard'
 import StackBarCard from './handlers/StackBarCard'
 import LineCard from './handlers/LineCard'
+import MapCard from './handlers/MapCard'
 
 class Main extends React.Component {
     render() {
         return (
-            <Container fluid style={{ marginTop: '7em' ,padding:'2em'}}>               
+            <Container  style={{ marginTop: '7em' ,padding:'2em'}}>               
                 <Card.Group >
                     <PieCard inRadius={0}/>
                     <PieCard inRadius={60}/>   
@@ -25,6 +26,7 @@ class Main extends React.Component {
                     <StackBarCard horizontal={false}/>
                     <StackBarCard horizontal={true}/>
                     <LineCard/>
+                    <MapCard/>
                 </Card.Group>
             </Container>
         )

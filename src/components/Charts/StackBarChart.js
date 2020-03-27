@@ -1,5 +1,5 @@
 import React from 'react'
-import { VictoryStack, VictoryChart, VictoryBar, VictoryTheme } from 'victory'
+import { VictoryStack, VictoryChart, VictoryBar, VictoryTheme,VictoryLabel} from 'victory'
 
 class StackBarChart extends React.Component {
 
@@ -39,6 +39,9 @@ class StackBarChart extends React.Component {
                     >
                      {this.renderBars()}                       
                     </VictoryStack>
+
+                    <VictoryLabel text="Y label" x={15} y={150} textAnchor="middle" labelPlacement="parallel" angle="270"/>
+                    <VictoryLabel text="X label" x={150} y={288} textAnchor="middle" labelPlacement="parallel" />
                 </VictoryChart>
             </svg>
         )
