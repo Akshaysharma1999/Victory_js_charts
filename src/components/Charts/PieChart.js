@@ -8,14 +8,16 @@ class PieChart extends React.Component {
         this.state = { data: [{ y: 0 }, { y: 0 }, { y: 0 }, { y: 0 }, { y: 0 }, { y: 100 }], legendData: [] }
     }
     componentDidMount() {
+       
         this.setState({ data: this.props.data })
-        this.setState({ legendData: this.props.legendData })
+        this.setState({ legendData: this.props.legendData })       
+       
     }
     render() {
         return (
-
             <svg width="300" height="300" viewBox="0 0 300 300">
                 <VictoryLegend       
+                // animate
                     x={0}
                     y={230}        
                     standalone={false}

@@ -4,7 +4,9 @@ import HighchartsReact from "highcharts-react-official";
 import highchartsMap from "highcharts/modules/map";
 import proj4 from "proj4";
 import mapDataIN from "@highcharts/map-collection/countries/in/in-all.geo.json"
+import PieChart from './PieChart'
 highchartsMap(Highcharts); // Initialize the map module
+
 
 if (typeof window !== "undefined") {
     window.proj4 = window.proj4 || proj4;
@@ -24,8 +26,10 @@ const mapOptions = {
         enabled: true
     },
     tooltip: {
-        headerFormat: "",
-        pointFormat: "lat: {point.lat}, lon: {point.lon}"
+        useHTML:true,
+        formatter:function(){
+           return '<PieChart/>';
+        }
     },
     series: [
         {
@@ -42,7 +46,7 @@ const mapOptions = {
             name: "ABC",
             color: "#4169E1",
             data: [{ z: 10, keyword: "Madhya Pradesh", lat: 22.9734, lon: 78.6569 }, { z: 5, keyword: "Delhi", lat: 28.69, lon: 77.0856 }],
-            cursor: "pointer",
+            cursor: "pointer",           
             point: {
                 events: {
                     click: function () {
@@ -54,7 +58,7 @@ const mapOptions = {
     ]
 };
 
-class MapChart extends React.Component {
+class MapChart extends React.Component {   
     render() {
         return (
             <div>

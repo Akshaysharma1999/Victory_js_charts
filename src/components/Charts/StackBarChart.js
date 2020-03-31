@@ -10,10 +10,12 @@ class StackBarChart extends React.Component {
             dArr.map((d)=>{
                 return(<VictoryBar
                     horizontal={this.props.horizontal}
-                    animate
+                    // animate
                     width={300}
                     height={300}
                     data={d}
+                    labels={({ datum }) => `${Math.round(datum.y)}`}
+                    sortKey={this.props.sortKey}
                 />)
             })           
         )
@@ -22,18 +24,18 @@ class StackBarChart extends React.Component {
     render() {
         return (
             <svg width={300} height={300} >
-                <VictoryChart
+                <VictoryChart                
                     standalone={false}
                     theme={VictoryTheme.material}
                     width={300}
                     height={300}
                     domainPadding={30}
+                    animate
                 >
                     <VictoryStack
                         standalone={false}
                         // theme={VictoryTheme.material}
-                        colorScale="qualitative"
-                        animate
+                        colorScale="qualitative"                      
                         width={300}
                         height={300}
                     >

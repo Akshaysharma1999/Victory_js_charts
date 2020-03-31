@@ -9,6 +9,7 @@ import BarCard from './handlers/BarCard'
 import StackBarCard from './handlers/StackBarCard'
 import LineCard from './handlers/LineCard'
 import MapCard from './handlers/MapCard'
+import HbarSortCard from './handlers/HbarSortCard'
 
 class Main extends React.Component {
     render() {
@@ -25,8 +26,9 @@ class Main extends React.Component {
                     <BarCard horizontal={true}/>
                     <StackBarCard horizontal={false}/>
                     <StackBarCard horizontal={true}/>
-                    <LineCard/>
+                    <LineCard/> 
                     <MapCard/>
+                    <HbarSortCard/>
                 </Card.Group>
             </Container>
         )

@@ -6,9 +6,10 @@ import React from 'react'
 // import GroupBarCharts from './GroupBarCharts'
 // import StackAreaChart from './StackAreaChart'
 // import StackBarChart from './StackBarChart'
-// import HbarSort from './HbarSort'
+import HbarSort from './Charts/HbarSort'
 import Layout from './Layout'
 import MapChart from './Charts/MapChart'
+import Central from './Charts/StackedBarHorCentral'
 
 class App extends React.Component {
   render() {
@@ -52,6 +53,17 @@ class App extends React.Component {
      
       //{/* map chart */}
       // <MapChart/>
+
+      //{}
+      // <div>
+      //   <Central/>
+      // </div>
+
+      //{}
+      // <div>
+      //     <HbarSort  data={[[{ x: "A", y: 5 }, { x: "B", y: 7 }, { x: "C", y: 2 }, { x: "D", y: 4 }, { x: "E", y: 1 }, { x: "F", y: 10 }]]} />
+      // </div>
+
       <div>
           <Layout/>
       </div>
