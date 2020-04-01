@@ -2,7 +2,7 @@ import React from 'react'
 import { Card, Image, Icon } from 'semantic-ui-react'
 import MapChart from '../Charts/MapChart'
 
-class LineCard extends React.Component {
+class MapCard extends React.Component {
     render() {
         return (
             <Card>
@@ -11,4 +11,4 @@ class LineCard extends React.Component {
         )
     }
 }
-export default LineCard
+export default MapCard

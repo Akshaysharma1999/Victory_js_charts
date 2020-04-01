@@ -10,13 +10,15 @@ import StackBarCard from './handlers/StackBarCard'
 import LineCard from './handlers/LineCard'
 import MapCard from './handlers/MapCard'
 import HbarSortCard from './handlers/HbarSortCard'
+import StackBarHorCentralChart from './Charts/StackedBarHorCentral'
+import StackBarHorCentralCard from './handlers/StackBarHorCentralCard'
 
 class Main extends React.Component {
     render() {
         return (
             <Container  style={{ marginTop: '7em' ,padding:'2em'}}>               
                 <Card.Group >
-                    <PieCard inRadius={0}/>
+                    {/* <PieCard inRadius={0}/>
                     <PieCard inRadius={60}/>   
                     <AreaCard/>   
                     <StackAreaCard/>     
@@ -26,9 +28,11 @@ class Main extends React.Component {
                     <BarCard horizontal={true}/>
                     <StackBarCard horizontal={false}/>
                     <StackBarCard horizontal={true}/>
-                    <LineCard/> 
+                    <LineCard/>  */}
                     <MapCard/>
-                    <HbarSortCard/>
+                    {/* <HbarSortCard/> */}
+                    {/* <StackBarHorCentralCard/> */}
+                    {/* <StackBarHorCentralChart/> */}
                 </Card.Group>
             </Container>
         )

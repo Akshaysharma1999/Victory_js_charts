@@ -10,6 +10,7 @@ import HbarSort from './Charts/HbarSort'
 import Layout from './Layout'
 import MapChart from './Charts/MapChart'
 import Central from './Charts/StackedBarHorCentral'
+import MapChartCard from './handlers/MapChartReact-simple-charts'
 
 class App extends React.Component {
   render() {
@@ -17,13 +18,13 @@ class App extends React.Component {
       // <div>
       //   {/* area chart  data in the form of 2d array  */}
       // <StackAreaChart data={[[{ x: "A", y: 10 }, { x: "B", y: 5 }, { x: "C", y: 8 }, { x: "D", y: 6 }, { x: "E", y: 20 }]]} />
-       
+
       //   {/* stack area chart data in the form of 2d array */}
       // <StackAreaChart data = {[[{ x: "A", y: 2 }, { x: "B", y: 3 }, { x: "C", y: 5 }],[{ x: "A", y: 1 }, { x: "B", y: 4 }, { x: "C", y: 5 }],[{ x: "A", y: 3 }, { x: "B", y: 2 }, { x: "C", y: 6 }]]}/>
-      
+
       // {/* pie chart need a handler for default props */}
       // <PieChart data={[{ x: "A", y: 25 }, { x: "B", y: 15 }, { x: "C", y: 20 }, { x: "D", y: 10 }, { x: "E", y: 18 }, { x: "F", y: 12 }]} inRadius={0} />
-      
+
       // {/* donut chart need a handler for default props*/}
       // <PieChart data={[{ x: "A", y: 25 }, { x: "B", y: 15 }, { x: "C", y: 20 }, { x: "D", y: 10 }, { x: "E", y: 18 }, { x: "F", y: 12 }]} inRadius={40} />
 
@@ -32,7 +33,7 @@ class App extends React.Component {
 
       // {/*grouped bar chart horizontal*/}
       // <GroupBarCharts data={[[{ x: "A", y: 1 }, { x: "B", y: 2 }, { x: "C", y: 5 }],[{ x: "A", y: 2 }, { x: "B", y: 1 }, { x: "C", y: 7 }],[{ x: "A", y: 3 }, { x: "B", y: 4 }, { x: "C", y: 9 }]]} horizontal={true}/>
-      
+
       // {/* Bar chart requires data in the form of 2d array */}     
       // <StackBarChart  data={[[{ x: "A", y: 5 }, { x: "B", y: 7 }, { x: "C", y: 2 }, { x: "D", y: 4 }, { x: "E", y: 1 }, { x: "F", y: 10 }]]} horizontal={false}/>
 
@@ -50,7 +51,7 @@ class App extends React.Component {
 
       // {/* <HbarSort data={[{ x: "a", y: 5 }, { x: "b", y: 7 }, { x: "c", y: 2 }, { x: "d", y: 4 }, { x: "e", y: 1 }, { x: "f", y: 10 }]} /> */}
       // </div>      
-     
+
       //{/* map chart */}
       // <MapChart/>
 
@@ -63,10 +64,19 @@ class App extends React.Component {
       // <div>
       //     <HbarSort  data={[[{ x: "A", y: 5 }, { x: "B", y: 7 }, { x: "C", y: 2 }, { x: "D", y: 4 }, { x: "E", y: 1 }, { x: "F", y: 10 }]]} />
       // </div>
+      // <div>
+      //   <MapChartCard />
+      // </div>
+
+      // <div>
+      //   <Central/>
+      // </div>
+
 
       <div>
           <Layout/>
       </div>
+      // <div>Hello</div>
     )
   }
 }
