@@ -9,6 +9,7 @@ class GroupCharts extends React.Component {
         return dArr.map((Arr) => {
             // console.log(Arr)
             return <VictoryBar
+                labels={({ datum }) => `${Math.round(datum.y)}`}
                 horizontal={this.props.horizontal}
                 data={Arr}
                 animate
