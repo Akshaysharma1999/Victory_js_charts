@@ -12,6 +12,7 @@ import MapChart from './Charts/MapChart'
 import Central from './Charts/StackedBarHorCentral'
 import MapChartCard from './handlers/MapChartReact-simple-charts'
 
+
 class App extends React.Component {
   render() {
     return (
@@ -72,10 +73,10 @@ class App extends React.Component {
       //   <Central/>
       // </div>
 
-
       <div>
           <Layout/>
       </div>
+     
       // <div>Hello</div>
     )
   }

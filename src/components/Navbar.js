@@ -1,16 +1,18 @@
 import React from 'react'
-import { Container,Dropdown,Image,Menu} from 'semantic-ui-react'
+import { Container,Dropdown,Image,Menu, Button, Icon} from 'semantic-ui-react'
+
 
 class Navbar extends React.Component {
     render() {
         return (
-            <Menu fixed='top' inverted size="massive">
+           
+            <Menu fixed='top' inverted size="massive">                 
                 <Container>
-                    <Menu.Item as='a' header>
-                        <Image size='mini' src='/logo.png' style={{ marginRight: '1.5em' }} />
+                    <Menu.Item as='a' header onClick={this.props.onClick}>
+                      <Icon name="sidebar"/>
                    Project Name
                              </Menu.Item>
-                    <Menu.Item as='a'>Home</Menu.Item>
+                    <Menu.Item as='a'>Home</Menu.Item>  
 
                     <Dropdown item simple text='Dropdown'>
                         <Dropdown.Menu>
@@ -30,7 +32,7 @@ class Navbar extends React.Component {
                         </Dropdown.Menu>
                     </Dropdown>
                 </Container>
-            </Menu>
+            </Menu>            
         )
     }
 }

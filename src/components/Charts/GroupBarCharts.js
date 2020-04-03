@@ -12,7 +12,7 @@ class GroupCharts extends React.Component {
                 labels={({ datum }) => `${Math.round(datum.y)}`}
                 horizontal={this.props.horizontal}
                 data={Arr}
-                animate
+                animate               
             />
         })      
     }
@@ -20,7 +20,7 @@ class GroupCharts extends React.Component {
     render() {
         return (
             <svg width={300} height={300} >
-                <VictoryChart
+                <VictoryChart               
                     theme={VictoryTheme.material}
                     standalone={false}
                     width={300} height={300}
@@ -30,7 +30,8 @@ class GroupCharts extends React.Component {
                         colorScale={"qualitative"}
                         standalone={false}
                         width={300} height={300}
-                        animate
+                        animate                        
+                        sortKey='y'
                     >
                         {this.renderBars()}
                     </VictoryGroup>
