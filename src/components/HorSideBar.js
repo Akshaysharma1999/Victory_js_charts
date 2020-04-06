@@ -12,7 +12,7 @@ class HorSidebar extends React.Component {
       
           <Sidebar
             as={Menu}
-            animation='overlay'
+            animation='scaledown'
             icon='labeled'
             inverted
             vertical

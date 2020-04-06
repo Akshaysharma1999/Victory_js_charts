@@ -1,4 +1,5 @@
 import React from 'react'
+import { Router, Route, Switch } from 'react-router-dom'
 // import PieChart from './PieChart'
 // import AreaChart from './AreaChart'
 // import BarChart from './BarChart'
@@ -6,12 +7,14 @@ import React from 'react'
 // import GroupBarCharts from './GroupBarCharts'
 // import StackAreaChart from './StackAreaChart'
 // import StackBarChart from './StackBarChart'
-import HbarSort from './Charts/HbarSort'
+// import HbarSort from './Charts/HbarSort'
 import Layout from './Layout'
-import MapChart from './Charts/MapChart'
-import Central from './Charts/StackedBarHorCentral'
-import MapChartCard from './handlers/MapChartReact-simple-charts'
-
+// import MapChart from './Charts/MapChart'
+// import Central from './Charts/StackedBarHorCentral'
+// import MapChartCard from './handlers/MapChartReact-simple-charts'
+import LoginForm from './Login_SignUp/LoginForm'
+import { Header } from 'semantic-ui-react'
+import history from './history'
 
 class App extends React.Component {
   render() {
@@ -73,11 +76,24 @@ class App extends React.Component {
       //   <Central/>
       // </div>
 
-      <div>
-          <Layout/>
-      </div>
-     
+      // <div>
+      //     <Layout/>
+      // </div>
+
+      // <div>
+      //   <LoginForm />
+      // </div>
+
       // <div>Hello</div>
+      <div>
+        <Router history={history}>
+          <Header />
+          <Switch>
+            <Route path="/login" exact component={LoginForm} />
+            <Route path="/home" exact component={Layout} />
+          </Switch>
+        </Router>
+      </div>
     )
   }
 }
