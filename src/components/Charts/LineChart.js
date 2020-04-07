@@ -3,18 +3,12 @@ import { VictoryLine, VictoryChart, VictoryTheme, VictoryTooltip, VictoryScatter
 
 const VictoryZoomVoronoiContainer = createContainer("zoom", "voronoi");
 
-class LineChart extends React.Component {
-    constructor() {
-        super()
-        this.state = { data: [{ y: 0 }, { y: 0 }, { y: 0 }, { y: 0 }, { y: 0 }] }
-    }
-    componentDidMount() {
-        this.setState({ data: this.props.data })
-    }
+class LineChart extends React.Component {    
     render() {
         return (
             <VictoryChart height={300} width={300}
-                containerComponent={<VictoryZoomVoronoiContainer/>}              
+                containerComponent={<VictoryZoomVoronoiContainer/>}   
+                // containerComponent={<VictoryVoronoiContainer/>}             
                 theme={VictoryTheme.material}
             >
                 <VictoryGroup
@@ -25,7 +19,7 @@ class LineChart extends React.Component {
                             style={{ fontSize: 20 }}
                         />
                     }
-                    data={this.state.data}
+                    data={this.props.data}
                 >
                     <VictoryLine
                         animate                        

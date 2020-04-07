@@ -14,7 +14,7 @@ import Layout from './Layout'
 // import MapChartCard from './handlers/MapChartReact-simple-charts'
 import LoginForm from './Login_SignUp/LoginForm'
 import { Header } from 'semantic-ui-react'
-import history from './history'
+import history from '../history'
 
 class App extends React.Component {
   render() {

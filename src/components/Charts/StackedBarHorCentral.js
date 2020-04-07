@@ -31,6 +31,7 @@ const padding = { top: 40, bottom: 40, left: 40, right: 40 };
 class StackBarHorCentral extends React.Component {
 
   render() {
+    console.log(this.props)
     return (
       <svg width={300} height={300} viewBox={`0 0 ${width} ${height}`}>
         <VictoryStack horizontal
@@ -43,7 +44,7 @@ class StackBarHorCentral extends React.Component {
           <VictoryBar
             style={{ data: { fill: "tomato" } }}
             standalone={false}
-            data={dataA}
+            data={this.props.dataA}
             y={(data) => (-Math.abs(data.y))}
             labels={({ datum }) => (`${Math.round(Math.abs(datum.y))}%`)}
             animate
@@ -52,7 +53,7 @@ class StackBarHorCentral extends React.Component {
             animate
             style={{ data: { fill: "orange" } }}
             standalone={false}
-            data={dataB}
+            data={this.props.dataB}
             labels={({ datum }) => (`${Math.round(Math.abs(datum.y))}%`)}
           />
         </VictoryStack>

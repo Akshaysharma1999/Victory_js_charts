@@ -112,7 +112,7 @@ class Main extends React.Component {
                 return <HbarSortCard />
             }
             if (d == 11) {
-                return <StackBarHorCentralChart />
+                return <StackBarHorCentralCard />
             }
         })
     }

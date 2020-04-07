@@ -7,17 +7,16 @@ class StackChart extends React.Component {
     constructor()
     {
         super()
-        this.state = {
-            data: [{ x: 0, y: 0 }]
-          }
+        // this.state = {
+        //     data: [{ x: 0, y: 0 }]
+        //   }
     }
 
     renderAreaCharts = () => {       
         let dArr = this.props.data
         return (
             dArr.map((d) => {
-                return (
-                   
+                return (                   
                     <VictoryArea
                         standalone={false}
                         width={300}

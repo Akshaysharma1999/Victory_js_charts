@@ -1,17 +1,28 @@
 import React from 'react'
 import { VictoryPie, VictoryTheme, VictoryLabel, VictoryLegend } from 'victory'
 
-
+// [{ y: 0 }, { y: 0 }, { y: 0 }, { y: 0 }, { y: 0 }, { y: 100 }]
 class PieChart extends React.Component {
     constructor(props) {
         super(props)
-        this.state = { data: [{ y: 0 }, { y: 0 }, { y: 0 }, { y: 0 }, { y: 0 }, { y: 100 }], legendData: [] }
+        console.log(this.props.data.length)
+        this.state = { data: this.props.data.map((val,index)=>{
+                        if(index === this.props.data.length-1)
+                        {
+                           return{y:100}
+                        }
+                        return {y:0}
+                     }), 
+                     legendData: [] 
+                    }
     }
     componentDidMount() {
-       
+        console.log(this.state.data)       
         this.setState({ data: this.props.data })
-        this.setState({ legendData: this.props.legendData })       
-       
+        this.setState({ legendData: this.props.legendData })  
+         setTimeout(()=>{
+            this.setState({data:[{ x: "A", y: 35 }, { x: "B", y: 35 }, { x: "C", y: 2 }, { x: "D", y: 1 }, { x: "E", y: 15 }, { x: "F", y: 1 }], legendData:[{ name: "A"}, { name: "B"}, { name : "C"}, { name: "D"}, { name: "E"}, {name: "F"}] } )
+         },3000)     
     }
     render() {
         return (
