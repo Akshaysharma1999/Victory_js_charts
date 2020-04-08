@@ -14,7 +14,10 @@ import Layout from './Layout'
 // import MapChartCard from './handlers/MapChartReact-simple-charts'
 import LoginForm from './Login_SignUp/LoginForm'
 import { Header } from 'semantic-ui-react'
+import Home from './Home'
+import Profile from './Profile'
 import history from '../history'
+import LogInWithOtp from './Login_SignUp/LogInWithOtp'
 
 class App extends React.Component {
   render() {
@@ -90,7 +93,10 @@ class App extends React.Component {
           <Header />
           <Switch>
             <Route path="/login" exact component={LoginForm} />
-            <Route path="/home" exact component={Layout} />
+            <Route path="/charts" exact component={Layout} />
+            <Route path="/" exact component={Home} />
+            <Route path="/profile" exact component={Profile} />
+            <Route path="/loginwithotp" exact component={LogInWithOtp} />
           </Switch>
         </Router>
       </div>

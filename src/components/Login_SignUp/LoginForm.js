@@ -1,68 +1,88 @@
 import React from 'react'
-import { Button, Form, Grid, Header, Icon, Message, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Icon, Message, Segment, Input } from 'semantic-ui-react'
+import { Field, reduxForm } from 'redux-form'
+import { connect } from 'react-redux'
+import { logIn } from '../../actions'
+import {Link} from 'react-router-dom'
 
 class LoginForm extends React.Component {
 
-  constructor() {
-    super()
-    this.state = ({ submit: false })
-  }
-
-  renderInputs = () => {
-    console.log(this.state.submit)
-    if (this.state.submit == false) {
-      return (
-        <Segment >
-          <Form.Input fluid icon='user' iconPosition='left' placeholder='E-mail address' />
-          <Form.Input fluid icon='lock' iconPosition='left' placeholder='Password' type='password' />
-          <Button color='teal' fluid size='large'>Login</Button>
-        </Segment>
-      )
+    renderErrorMessage = ({ error, touched }) => {
+        if (error && touched) {
+            return {content:error,pointing:'below'}          
+        }
+        else
+        {
+            return false
+        }
     }
-    else {
-      return (
-        <Segment >
-          <Form.Input fluid icon='phone' iconPosition='left' placeholder='Enter Mobile No.' />
-          <Button color='teal' fluid size='large'>Send OTP</Button>
-        </Segment>
-      )
+
+    renderInput = ({ input, meta, placeholder, label, type, icon }) => {
+        console.log(meta)
+        return (
+            <Form.Field >
+                <label left>{label}</label>
+                <Form.Input error={this.renderErrorMessage(meta)}
+                    {...input}
+                    icon={icon}
+                    iconPosition='left'
+                    type={type}
+                    onChange={input.onChange}
+                    value={input.value} placeholder={placeholder} />
+                {/* {this.renderErrorMessage(meta)} */}
+            </Form.Field>
+        )
     }
-  }
 
-  renderMessage = () => {
-    if (this.state.submit == false) {
-    return (
-      <Message>
-        <Button>Forgot password</Button>
-      </Message>
-    )
+    renderButton = () => {
+        return (<Button color='teal' fluid size='large'>Login</Button>)
     }
-  }
 
-  handleonSubmit = (e,d)=>{
-    console.log(e)
-    console.log(d)
-    console.log("go to login through otp ")
-  }
+    onSubmit = (formvalues) => {
+        this.props.logIn(formvalues)
+    }
 
-  render() {
-    return (
-      <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
-        <Grid.Column style={{ maxWidth: 450 }}>
-          <Header as='h2' color='teal' textAlign='center'>
-            <Icon name="signup" /> Log-in to your account
-          </Header>
-          <Form size='large' onSubmit={(e,d)=>this.handleonSubmit(d)}>
-            {this.renderInputs()}
-          </Form>
-          <Form size='large' onSubmit={() => this.setState({ submit: !this.state.submit })}>
-            {this.renderMessage()}
-          </Form>
-        </Grid.Column>
-      </Grid>
-    )
-  }
+    render() {
+        // console.log(this.props)
+        return (
+            <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+                <Grid.Column style={{ maxWidth: 450 }}>
+                    <Header as='h2' color='teal' textAlign='center'>
+                        <Icon name="signup" /> Log-in to your account
+                    </Header>
+                    <Form onSubmit={this.props.handleSubmit(this.onSubmit)} >
+                        <Segment textAlign="left">
+                            <Field name="username" as={Form.Input} component={this.renderInput} icon="user" label="User Name" placeholder="Enter email-id" type="email"></Field>
+                            <Field name="password" component={this.renderInput} icon="key" label="Password" placeholder="Enter password" type="password"></Field>
+                            <center>
+                                <div>or</div>
+                                <Link to="/loginwithotp">Login with OTP</Link>
+                            </center>
+                        </Segment>
+                        {this.renderButton()}
+                    </Form>
+                </Grid.Column>
+            </Grid>
+        )
+    }
 
 }
 
-export default LoginForm
+const validate = formValues => {
+    const errors = {}    
+
+    if (!formValues.username) {
+        errors.username = 'You must enter a username'
+    }
+    else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(formValues.username)) {
+        errors.username = 'Email is not valid'
+    }
+
+    if (!formValues.password) {
+        errors.password = 'You must enter a password'
+    }
+
+    return errors
+}
+
+export default connect(null, { logIn })(reduxForm({ form: 'LoginForm', validate })(LoginForm))
