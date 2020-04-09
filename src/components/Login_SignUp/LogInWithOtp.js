@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Form, Grid, Header, Icon, Message, Segment, Input } from 'semantic-ui-react'
 import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
-import { logIn, sendOtp } from '../../actions'
+import { otpLogIn, sendOtp } from '../../actions'
 import { Link } from 'react-router-dom'
 
 class LogInWithOtp extends React.Component {
@@ -69,7 +69,7 @@ class LogInWithOtp extends React.Component {
         }
         else
         {
-            this.props.logIn(formvalues)
+            this.props.otpLogIn(formvalues)
         }
     }
 
@@ -105,4 +105,4 @@ const validate = formValues => {
     return errors
 }
 
-export default connect(null, { logIn, sendOtp })(reduxForm({ form: 'LoginForm', validate })(LogInWithOtp))
+export default connect(null, { otpLogIn, sendOtp })(reduxForm({ form: 'LoginForm', validate })(LogInWithOtp))

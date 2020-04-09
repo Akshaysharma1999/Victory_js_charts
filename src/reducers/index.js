@@ -1,10 +1,10 @@
 import {combineReducers} from 'redux'
-import test from './test'
+import userReducer from './userReducer'
 import { reducer as formReducer } from 'redux-form'
 
 export default combineReducers(
     {
-        test:test,
+        user:userReducer,
         form:formReducer
     }
 )

@@ -3,22 +3,21 @@ import { Button, Form, Grid, Header, Icon, Message, Segment, Input } from 'seman
 import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
 import { logIn } from '../../actions'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 class LoginForm extends React.Component {
 
     renderErrorMessage = ({ error, touched }) => {
         if (error && touched) {
-            return {content:error,pointing:'below'}          
+            return { content: error, pointing: 'below' }
         }
-        else
-        {
+        else {
             return false
         }
     }
 
     renderInput = ({ input, meta, placeholder, label, type, icon }) => {
-        console.log(meta)
+        // console.log(meta)
         return (
             <Form.Field >
                 <label left>{label}</label>
@@ -42,11 +41,25 @@ class LoginForm extends React.Component {
         this.props.logIn(formvalues)
     }
 
+    renderRequestError = () => {
+        console.log(this.props.requestErrors)
+        if(this.props.requestErrors.message)
+        {
+            return (
+                < Message negative >
+                    <Message.Header>Log In Error</Message.Header>
+                    <p>{this.props.requestErrors.message}</p>
+                </Message >
+            )
+        }
+    }
+
     render() {
         // console.log(this.props)
         return (
             <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                 <Grid.Column style={{ maxWidth: 450 }}>
+                    {this.renderRequestError()}
                     <Header as='h2' color='teal' textAlign='center'>
                         <Icon name="signup" /> Log-in to your account
                     </Header>
@@ -65,11 +78,15 @@ class LoginForm extends React.Component {
             </Grid>
         )
     }
+}
 
+const mapStateToProps = (state)=>{
+    // console.log(state)   
+    return{requestErrors:state.user.errors}
 }
 
 const validate = formValues => {
-    const errors = {}    
+    const errors = {}
 
     if (!formValues.username) {
         errors.username = 'You must enter a username'
@@ -85,4 +102,4 @@ const validate = formValues => {
     return errors
 }
 
-export default connect(null, { logIn })(reduxForm({ form: 'LoginForm', validate })(LoginForm))
+export default connect(mapStateToProps, { logIn })( reduxForm({ form: 'LoginForm', validate })(LoginForm))
