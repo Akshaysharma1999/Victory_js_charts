@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Header, Card, Segment, Loader, Dimmer, Image, Statistic, Icon } from 'semantic-ui-react'
+import { Container, Header, Card, Segment, Loader, Dimmer, Image, Statistic, Icon,Placeholder } from 'semantic-ui-react'
 
 import PieCard from './handlers/PieCard'
 import AreaCard from './handlers/AreaCard'
@@ -123,16 +123,33 @@ class Main extends React.Component {
             console.log("f")
             return (
 
+                // <Segment>
+                //     <Dimmer active inverted>
+                //         <Loader size='large'>Loading</Loader>
+                //     </Dimmer>
+
+                //     <Image src='http://semantic-ui.com/images/wireframe/paragraph.png' />
+                //     <Image src='http://semantic-ui.com/images/wireframe/paragraph.png' />
+
+                // </Segment>
                 <Segment>
-                    <Dimmer active inverted>
-                        <Loader size='large'>Loading</Loader>
-                    </Dimmer>
-
-                    <Image src='http://semantic-ui.com/images/wireframe/paragraph.png' />
-                    <Image src='http://semantic-ui.com/images/wireframe/paragraph.png' />
-
+                <Placeholder  fluid style={{ height: 320}}>
+                    <Placeholder.Header image>
+                    <Placeholder.Line />
+                    <Placeholder.Line />
+                    </Placeholder.Header>
+                    <Placeholder.Paragraph>
+                    <Placeholder.Line />
+                    <Placeholder.Line />
+                    <Placeholder.Line />
+                    <Placeholder.Line />
+                    <Placeholder.Line />
+                    <Placeholder.Line />
+                    <Placeholder.Line />
+                    <Placeholder.Line />
+                    </Placeholder.Paragraph>
+                </Placeholder>
                 </Segment>
-
             )
         }
     }

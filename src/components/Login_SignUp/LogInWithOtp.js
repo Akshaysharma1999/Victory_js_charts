@@ -5,12 +5,7 @@ import { connect } from 'react-redux'
 import { otpLogIn, sendOtp } from '../../actions'
 import { Link } from 'react-router-dom'
 
-class LogInWithOtp extends React.Component {
-
-    constructor(props) {
-        super(props)
-        this.state = { temp: false }
-    }
+class LogInWithOtp extends React.Component {    
 
     renderErrorMessage = ({ error, touched }) => {
         if (error && touched) {
@@ -22,7 +17,7 @@ class LogInWithOtp extends React.Component {
     }
 
     renderInput = ({ input, meta, placeholder, label, type, icon }) => {
-        console.log(meta)
+        // console.log(meta)
         return (
             <Form.Field >
                 <label left>{label}</label>
@@ -37,9 +32,35 @@ class LogInWithOtp extends React.Component {
             </Form.Field>
         )
     }
+   
+    renderRequestError = () => {
+        console.log(this.props.requestErrors)
+        if(this.props.requestErrors.message)
+        {
+            return (
+                < Message negative >
+                    <Message.Header>Error</Message.Header>
+                    <p>{this.props.requestErrors.message}</p>
+                </Message >
+            )
+        }
+    }
+    
+    renderRequestSuccess = () => {
+        console.log(this.props.requestSuccess)
+        if(this.props.requestSuccess.message)
+        {
+            return (                
+                < Message success >
+                    <Message.Header>Success</Message.Header>
+                    <p>{this.props.requestSuccess.message}</p>
+                </Message >
+            )
+        }
+    }
 
     renderSegment = () => {
-        if (this.state.temp === false) {
+        if (this.props.requestSuccess.message === undefined) {
             return (
                 <Segment textAlign="left">
                     <Field name="mobileNo" component={this.renderInput} icon="phone" label="Mobile No" placeholder="Enter Mobile No" type="text"></Field>
@@ -62,7 +83,7 @@ class LogInWithOtp extends React.Component {
     }
 
     onSubmit = (formvalues) => {
-        if(this.state.temp===false)
+        if(this.props.requestSuccess.message === undefined)
         {
             this.props.sendOtp(formvalues)
             this.setState({temp:true})
@@ -78,6 +99,8 @@ class LogInWithOtp extends React.Component {
         return (
             <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                 <Grid.Column style={{ maxWidth: 450 }}>
+                    {this.renderRequestError()}
+                    {this.renderRequestSuccess()}
                     <Header as='h2' color='teal' textAlign='center'>
                         <Icon name="signup" /> Log-in to your account
                     </Header>
@@ -105,4 +128,9 @@ const validate = formValues => {
     return errors
 }
 
-export default connect(null, { otpLogIn, sendOtp })(reduxForm({ form: 'LoginForm', validate })(LogInWithOtp))
+const mapStateToProps = (state)=>{
+    console.log(state)
+    return {requestErrors:state.user.errors,requestSuccess:state.user.success}
+}
+
+export default connect(mapStateToProps, { otpLogIn, sendOtp })(reduxForm({ form: 'LoginForm', validate })(LogInWithOtp))

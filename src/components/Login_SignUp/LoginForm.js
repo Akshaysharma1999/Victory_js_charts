@@ -38,6 +38,7 @@ class LoginForm extends React.Component {
     }
 
     onSubmit = (formvalues) => {
+        console.log(formvalues)
         this.props.logIn(formvalues)
     }
 
